@@ -1,7 +1,7 @@
 # anderix/.github
 
-Org-wide defaults for the anderix repos. Right now that means reusable CI
-workflows: the policy lives here once, and each repo calls it instead of
+Org-wide defaults for the anderix repos: reusable CI workflows. The policy
+lives here once, and each repo calls it instead of
 carrying its own copy.
 
 ## Calling a workflow
@@ -12,18 +12,16 @@ A consumer repo's `.github/workflows/ci.yml` is a few lines:
 name: ci
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   ci:
     uses: anderix/.github/.github/workflows/rust-ci.yml@main
 ```
 
-The trigger stays in the caller, because when a repo builds is the caller's
-business; what a build checks is the fleet's.
+The trigger stays in the caller, and it is `workflow_dispatch`: a run happens
+when a person asks for one, before a release or after a change worth testing.
+What a build checks is the fleet's business.
 
 Pinning `@main` rather than a tag is deliberate. A correction to the policy
 should reach every repo the next time it builds, which is the reason the file
@@ -45,4 +43,4 @@ GitHub will also serve org-wide community health files from this repo —
 `SECURITY.md`, `CONTRIBUTING.md`, issue templates — to any repo that lacks its
 own. Security policies are deliberately not consolidated that way: they differ
 per tool in exactly the lines that matter, describing what that binary can
-reach and what it stores. The reasoning is in `~/notes/dry_boundary.md`.
+reach and what it stores.
