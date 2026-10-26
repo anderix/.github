@@ -39,7 +39,7 @@ permissions:
 
 # One in-flight run per branch; a newer push cancels the older run.
 concurrency:
-  group: rust-ci-${{ github.ref }}
+  group: rust-ci-${{ github.ref }}-${{ inputs.toolchain }}
   cancel-in-progress: true
 
 jobs:
