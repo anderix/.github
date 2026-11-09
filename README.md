@@ -1,6 +1,7 @@
 # anderix/.github
 
-Org-wide defaults for the anderix repos: reusable CI workflows. The policy
+Org-wide defaults for the anderix repos: reusable CI workflows and the commit
+standard. The policy
 lives here once, and each repo calls it instead of
 carrying its own copy.
 
@@ -36,6 +37,12 @@ boundary; it is not the nineteen copies this arrangement exists to prevent.
 
 This repo must stay public. A private one cannot serve reusable workflows to
 public callers.
+
+## The commit standard
+
+`CONTRIBUTING.md` holds the commit message convention every repo in the org
+follows. GitHub links it from any repo without a `CONTRIBUTING.md` of its own,
+so no repo carries a copy.
 
 ## What does not belong here
 
