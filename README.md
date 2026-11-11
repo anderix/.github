@@ -1,9 +1,8 @@
 # anderix/.github
 
 Org-wide defaults for the anderix repos: reusable CI workflows and the commit
-standard. The policy
-lives here once, and each repo calls it instead of
-carrying its own copy.
+standard. The policy lives here once, and each repo calls it instead of carrying
+its own copy.
 
 ## Calling a workflow
 
@@ -32,8 +31,8 @@ is here and not copied into each one.
 
 excelano has its own `.github` repo holding the same kind of policy. The
 duplication is deliberate: tools under anderix may not depend on excelano, and
-a workflow reference is a dependency. Two copies across two orgs keeps the
-boundary; it is not the nineteen copies this arrangement exists to prevent.
+a workflow reference is a dependency. A copy per org keeps that boundary; it is
+not the per-repo copying this arrangement exists to prevent.
 
 This repo must stay public. A private one cannot serve reusable workflows to
 public callers.
@@ -44,10 +43,11 @@ public callers.
 follows. GitHub links it from any repo without a `CONTRIBUTING.md` of its own,
 so no repo carries a copy.
 
-## What does not belong here
+## Community health files
 
-GitHub will also serve org-wide community health files from this repo —
-`SECURITY.md`, `CONTRIBUTING.md`, issue templates — to any repo that lacks its
-own. Security policies are deliberately not consolidated that way: they differ
-per tool in exactly the lines that matter, describing what that binary can
-reach and what it stores.
+GitHub serves org-wide community health files from this repo to any repo that
+lacks its own, which is how `CONTRIBUTING.md` and the default `SECURITY.md`
+reach every repo. A tool that authenticates, reaches an external system or
+accepts network input carries its own `SECURITY.md`, because policies differ per
+tool in the lines that matter: what that binary can reach and what it stores.
+The default here covers the repos with nothing of that kind to describe.
